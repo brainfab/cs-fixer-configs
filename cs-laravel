@@ -1,0 +1,18 @@
+<?php
+
+$finder = \Symfony\CS\Finder\DefaultFinder::create()
+    ->exclude('app/Admin')
+    ->exclude('app/SmartModel')
+    ->exclude('public')
+    ->exclude('storage')
+    ->exclude('resources')
+    ->exclude('bootstrap')
+    ->in(__DIR__)
+;
+
+$o = \Symfony\CS\Config\Config::create();
+$o->fixers(['-psr0'])
+  ->finder($finder)
+            ;
+
+return $o;
